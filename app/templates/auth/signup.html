@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass-card center-card auth-card">
+    <h2>Create Account</h2>
+
+    <form method="post" action="/auth/signup" class="form">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+
+        <button class="btn-glow">Signup</button>
+    </form>
+
+    <p style="margin-top: 12px;">
+        Already have an account? <a href="/auth/login">Login</a>
+    </p>
+</div>
+
+{% endblock %}

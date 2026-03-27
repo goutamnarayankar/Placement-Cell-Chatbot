@@ -1,0 +1,32 @@
+[
+  {
+    "company": "Google",
+    "cgpa_cutoff": 8.0,
+    "required_skills": ["DSA", "System Design", "Python", "Machine Learning"],
+    "roles": ["Software Engineer", "ML Engineer"]
+  },
+  {
+    "company": "Infosys",
+    "cgpa_cutoff": 6.5,
+    "required_skills": ["Java", "DBMS", "OOP"],
+    "roles": ["Systems Engineer", "Associate Developer"]
+  },
+  {
+    "company": "TCS",
+    "cgpa_cutoff": 6.0,
+    "required_skills": ["Communication Skills", "Aptitude", "Basic Programming"],
+    "roles": ["Assistant System Engineer"]
+  },
+  {
+    "company": "Accenture",
+    "cgpa_cutoff": 6.5,
+    "required_skills": ["Cloud Basics", "Java/Python", "Problem Solving"],
+    "roles": ["Application Development Associate"]
+  },
+  {
+    "company": "Wipro",
+    "cgpa_cutoff": 6.0,
+    "required_skills": ["Aptitude", "Communication", "Programming Basics"],
+    "roles": ["Project Engineer"]
+  }
+]

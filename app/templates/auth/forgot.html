@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass-card center-card auth-card">
+    <h2>Forgot Password?</h2>
+    <p>Enter your registered email.</p>
+
+    <form method="post" action="/auth/forgot" class="form">
+        <input type="email" name="email" placeholder="Your email" required />
+        <button class="btn-glow">Send Reset Link</button>
+    </form>
+</div>
+
+{% endblock %}

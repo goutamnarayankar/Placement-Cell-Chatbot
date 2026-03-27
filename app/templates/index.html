@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="app-grid">
+
+  <!-- LEFT: Chat -->
+  <section class="card chat-card">
+    <div class="chat-header">
+      <div>
+        <h3>Placement AI Mentor</h3>
+        <p class="muted">Ask about jobs, internships, resume or career roadmap</p>
+      </div>
+      <div class="lang">
+        <select id="lang-select">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="chat-window" class="chat-window" aria-live="polite"></div>
+
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" name="message" placeholder="Type your message..." autocomplete="off" />
+      <button id="chat-send" type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- RIGHT: Resume upload + quick actions -->
+  <aside class="card side-card">
+    <h4>Resume — Upload (PDF)</h4>
+    <form id="resume-form" enctype="multipart/form-data">
+      <label class="dropzone" id="dropzone">
+        <input id="resume-file" type="file" accept="application/pdf" name="file" />
+        <div class="dz-text">Drag & drop PDF here, or click to select</div>
+      </label>
+      <button id="upload-btn" type="button">Upload & Analyze</button>
+    </form>
+
+    <hr/>
+
+    <div class="quick-actions">
+      <button id="view-dashboard" onclick="location.href='/dashboard'">View Dashboard</button>
+      <button id="view-companies" onclick="location.href='/companies'">Companies</button>
+    </div>
+
+    <hr/>
+
+    <div class="help">
+      <strong>Tips</strong>
+      <ul>
+        <li>Ask the bot: "What jobs can I get?"</li>
+        <li>Upload resume to get personalized suggestions</li>
+        <li>Use language selector to chat in your preferred language</li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+/* frontend behavior handled by /static/js/chat.js — but minimal inline helpers for lang selector */
+document.getElementById('lang-select').addEventListener('change', async function(e){
+  const lang = e.target.value;
+  // notify server of lang change (optional)
+  await fetch('/chat/lang', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ lang })
+  });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="glass-card">
+    <h2>🏢 Top Companies & Requirements</h2>
+    <div id="companies" hx-get="/companies" hx-trigger="load" hx-swap="innerHTML">
+        Loading...
+    </div>
+</div>
+{% endblock %}
